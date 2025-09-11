@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftwareWorks - Computer Diagnostic Tool</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffffff, var(--background-color));
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: #004085;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .hero {
+            text-align: center;
+            grid-column: 1 / -1;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 3rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        #contact {
+            grid-column: 1 / -1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            padding: 0.75rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button[type="submit"] {
+            align-self: flex-start;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SoftwareWorks</h1>
+        <p>Computer Diagnostic Tool</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <h1>Diagnose Your PC in Minutes</h1>
+            <p>Download, scan, & learn what needs to be cleaned up on your computer with our latest diagnostic tool. Receive consistent speed, security, and stability for just $9.95/month!</p>
+            <button class="cta-button" id="install-btn">Call to Install</button>
+        </div>
+
+        <section id="speed">
+            <h2>Speed</h2>
+            <p>Say hello to faster computing. Let us diagnose your computer’s speed issues today!</p>
+            <ul>
+                <li>Processor Speed</li>
+                <li>Storage Speed</li>
+                <li>Memory Amount</li>
+                <li>Display Adapter</li>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>Security</h2>
+            <p>Detect and learn what needs to be removed on your device – we stand as your primary line of defense.</p>
+            <ul>
+                <li>System Updates</li>
+                <li>Software Updates</li>
+                <li>Anti-Virus Software</li>
+                <li>Anti-Malware</li>
+            </ul>
+        </section>
+
+        <section id="stability">
+            <h2>Stability</h2>
+            <p>Protecting your investment starts with system updates. Get a diagnosis, now.</p>
+            <ul>
+                <li>System Updates</li>
+                <li>Memory Usage</li>
+                <li>Hard Drive Health</li>
+                <li>System Up-Time</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Need more information? Fill out the form and one of our technicians will get back to you as soon as possible.</p>
+            <form id="contact-form">
+                <label for="name">Name*:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email*:</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Message*:</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SoftwareWorks. All rights reserved.</p>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (form.checkValidity()) {
+                    alert('Form submitted successfully! (This is a demo)');
+                    form.reset();
+                } else {
+                    alert('Please fill out all required fields.');
+                }
+            });
+
+            const installBtn = document.getElementById('install-btn');
+            installBtn.addEventListener('click', () => {
+                alert('Calling to install... (Demo alert)');
+            });
+        });
+    </script>
+</body>
+</html>
