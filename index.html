@@ -1,28 +1,19 @@
- <?php require 'alg.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17466625492"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17466625492');
-</script>
-   <header>
-    <h1>SoftwareWorks</h1>
-    <p>Computer Diagnostic Tool</p>
-    <!-- Toll Free Number -->
-    <div class="tollfree">
-        <a href="tel:18777868444">📞 Toll Free: 1-877-786-8444</a>
-    </div>
-</header>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17466625492"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17466625492');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoftwareWorks - Computer Diagnostic Tool</title>
+
     <style>
         :root {
             --primary-color: #007bff;
@@ -32,28 +23,6 @@
             --text-color: #333;
             --font-family: 'Arial', sans-serif;
         }
-     .tollfree {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 6px 12px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.tollfree a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.tollfree a:hover {
-    color: var(--accent-color);
-}
-
 
         body {
             font-family: var(--font-family);
@@ -78,6 +47,32 @@
             margin: 0;
             font-size: 2.5rem;
             animation: fadeIn 1s ease-in-out;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+        }
+
+        .tollfree {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .tollfree a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .tollfree a:hover {
+            color: var(--accent-color);
         }
 
         @keyframes fadeIn {
@@ -273,11 +268,15 @@
             }
         }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
         <h1>SoftwareWorks</h1>
         <p>Computer Diagnostic Tool</p>
+        <!-- Toll Free Number -->
+        <div class="tollfree">
+            <a href="tel:18777868444">📞 Toll Free: 1-877-786-8444</a>
+        </div>
     </header>
 
     <nav>
@@ -293,7 +292,6 @@
             <h1>Diagnose Your PC in Minutes</h1>
             <p>Download, scan, & learn what needs to be cleaned up on your computer with our latest diagnostic tool. Receive consistent speed, security, and stability for just $9.95/month!</p>
             <a href="tel:18777868444" class="cta-button" id="install-btn">📞 Call to Install</a>
-
         </div>
 
         <section id="speed">
@@ -372,10 +370,5 @@
             });
         });
     </script>
-</body>
-
+  </body>
 </html>
-
-
-
-
